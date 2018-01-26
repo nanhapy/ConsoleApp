@@ -54,8 +54,15 @@ namespace ConsoleApp
                     docText = sr.ReadToEnd();
                 }
 
-                Regex regexText = new Regex("Hello world!");
-                docText = regexText.Replace(docText, "Hi Everyone!");
+                docText = docText.Replace("{order.orderId}", "1111222222222222222")
+                .Replace("{order.customerName}", "盛安德盛安德盛安德盛安德盛安德")
+                .Replace("{order.customerAddress}", "盛安德盛安德盛安德盛安德盛安德Address")
+                .Replace("{order.customerContact}", "小张张")
+                .Replace("{order.customerFaxNumber}", "34565675644545")
+                .Replace("{order.selfName}", "盛安德盛安德盛安德盛安德盛安德")
+                .Replace("{order.signDate}", "1990-10-12")
+                .Replace("{order.endWharf}", "曹妃甸")
+                .Replace("{order.startWharf}", "天津港");
 
                 using (StreamWriter sw = new StreamWriter(wordDoc.MainDocumentPart.GetStream(FileMode.Create)))
                 {
